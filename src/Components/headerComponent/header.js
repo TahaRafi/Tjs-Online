@@ -40,6 +40,32 @@ class Header extends Component {
 
         var pageData = [];
 
+        // pageData.push(
+        //     <Router>
+        //         <div class="wrapper row1">
+        //             <header id="header" class="hoc clear">
+        //                 <div id="logo" class="fl_left">
+        //                     <h1><a><Link to="/home">TJS Online</Link></a></h1>
+        //                 </div>
+        //                 <nav id="mainav" class="fl_right">
+        //                     <div>
+        //                         <ul class="clear">
+        //                             <li class="active" onClick={() => this.handleOnClick (1)} ><a> <Link to="/home">Home</Link></a></li>
+        //                             <li onClick={() => this.handleOnClick (2)}><a> <Link to="/aboutus">About US</Link></a>
+        //                             </li>
+        //                             <li onClick={() => this.handleOnClick (3)}><a><Link to="/contact">Contact Us</Link></a></li>
+        //                         </ul>
+        //                     </div>
+        //
+        //                 </nav>
+        //             </header>
+        //             <Route path="/home" component={Pages} />
+        //         </div>
+        //     </Router>
+        //
+        // );
+
+
         pageData.push(
             <Router>
                 <div class="wrapper row1">
@@ -47,14 +73,14 @@ class Header extends Component {
                         <div id="logo" class="fl_left">
                             <h1><a><Link to="/home">TJS Online</Link></a></h1>
                         </div>
-                        <nav id="mainav" class="fl_right">
+                        <nav  class="fl_right">
                             <div>
-                                <ul class="clear">
-                                    <li class="active" onClick={() => this.handleOnClick (1)} ><a> <Link to="/home">Home</Link></a></li>
-                                    <li onClick={() => this.handleOnClick (2)}><a> <Link to="/aboutus">About US</Link></a>
-                                    </li>
-                                    <li onClick={() => this.handleOnClick (3)}><a><Link to="/contact">Contact Us</Link></a></li>
-                                </ul>
+
+                                   <a> <Link to="/home">Home</Link></a>&nbsp;
+                                   <a> <Link to="/aboutus">About US</Link></a>&nbsp;
+                                   <a><Link to="/contact">Contact Us</Link></a>&nbsp;
+                                   <a> <Link to="/home">Articles</Link></a>&nbsp;
+                                   <a> <Link to="/aboutus">Subscirbe</Link></a>&nbsp;
                             </div>
 
                         </nav>
