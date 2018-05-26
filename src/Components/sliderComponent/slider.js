@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AboutScript from "../pagesComponent/aboutUs/aboutScript";
 
 class Slider extends Component {
     render() {
@@ -34,6 +35,13 @@ class Slider extends Component {
                         </ul>
                     </div>
                 </div>
+
+                <script src="layout/scripts/jquery.min.js"></script>
+                <script src="layout/scripts/jquery.backtotop.js"></script>
+                <script src="layout/scripts/jquery.mobilemenu.js"></script>
+                <script src="layout/scripts/jquery.flexslider-min.js"></script>
+
+
             </slider>
         );
     }

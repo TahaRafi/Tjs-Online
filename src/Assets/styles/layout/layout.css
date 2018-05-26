@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 .container .content{}
 
 .services{}
-.services li:nth-child(-n+3){margin-bottom:30px;}/* Adds bottom margin to the first three elements only */
+.services li:nth-child(-n+3){margin-bottom:0;}/* Adds bottom margin to the first three elements only */
 .services article{position:relative; border-bottom:2px solid; text-align:center;}
 .services article .txtwrap{ border:1px solid;}
 .services article .txtwrap *{margin:0;}
@@ -343,7 +343,7 @@ table a, #comments a{background-color:inherit;}
 @media screen and (max-width:750px){
 	.imgl, .imgr{display:inline-block; float:none; margin:0 0 10px 0;}
 	.fl_left, .fl_right{display:block; float:none;}
-	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto;height:auto; margin:0 0 30px 0; padding:0;}
+	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto;height:auto; margin:15px 0 30px 0; padding:0;}
 
 	#topbar, #header{text-align:center;}
 
@@ -393,10 +393,11 @@ table a, #comments a{background-color:inherit;}
 .one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter {
 	display: inline-block;
 	float: left;
-	margin: 0 0 0 1.067485%;
+	margin: 15px 0 0 1.067485%;
 	list-style: none;
 }
 
-.fontAwsume{
 
+.container {
+	padding: 197px 0;
 }

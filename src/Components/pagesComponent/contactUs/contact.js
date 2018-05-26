@@ -14,17 +14,17 @@ class Contact extends Component {
 
             <contact>
              <Header/>
-                <head>
-                    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-                </head>
-                <section id="contact" class="content-section text-center">
+                {/*<head>*/}
+                    {/*<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>*/}
+                    {/*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>*/}
+                {/*</head>*/}
+                <section id="contact" class="content-section text-center" style={{backgroundColor: "#f8f9fa"}}>
                     <div class="contact-section">
                         <div class="container">
                             <h2>Contact Us</h2>
                             <p>Feel free to shout us by feeling the contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
+                            <div>
+                                <div>
                                     <form class="form-horizontal">
                                         <div class="form-group">
                                             <label for="exampleInputName2">Name</label>
@@ -40,18 +40,14 @@ class Contact extends Component {
                                         </div>
                                         <button type="button" class="btn btn-success">Send Message</button>
                                     </form>
-
-
-                                        <h3>Our Social Sites</h3>
-                                        <ul class="list-inline banner-social-buttons">
-                                            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter"> <span class="network-name">Twitter</span></i></a></li>
-                                            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
-                                            <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-youtube-play"> <span class="network-name">Youtube</span></i></a></li>
-                                        </ul>
-
+                                    <hr></hr>
                                 </div>
                             </div>
                         </div>
+
+                        <h2>Time of Reply</h2>
+                        <p>Feel free to shout us by feeling the contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p>
+
                     </div>
                 </section>
          <Footer/>
