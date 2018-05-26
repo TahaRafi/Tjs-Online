@@ -7,6 +7,8 @@ import Slider from '../../sliderComponent/slider';
 import Tutorials from "../javaTutorialsPage/Tutorials";
 import AboutUs from  "../../pagesComponent/aboutUs/aboutUs";
 import  Image  from '../../images/focus.jpg';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faGraduationCap from '@fortawesome/fontawesome-free-solid/faGraduationCap';
 
 class Pages extends Component {
 
@@ -18,6 +20,10 @@ class Pages extends Component {
         var pageDatagetfromDb = [
             {"name": "JAVA", "desc": "This is Java course", "link": "#"},
             {"name": "Pyhthon", "desc": "This is Java course", "link": "#"},
+            {"name": "Mongodb", "desc": "This is Java course", "link": "#"},
+            {"name": "Mongodb", "desc": "This is Java course", "link": "#"},
+            {"name": "Mongodb", "desc": "This is Java course", "link": "#"},
+            {"name": "Mongodb", "desc": "This is Java course", "link": "#"},
             {"name": "Mongodb", "desc": "This is Java course", "link": "#"}
         ];
 
@@ -27,8 +33,9 @@ class Pages extends Component {
             pageData.push(
                 <li class="one_third">
                     <article class="bgded overlay" style={{backgroundImage: "url(" + Image + ")"}}>
-                        <div class="txtwrap" ><i style={{fontSize:'1em'}} className="fa fas fa-graduation-cap"></i>
-                            <h6 class="heading">Malesuada</h6>
+                        <div class="txtwrap" >
+                            <i><FontAwesomeIcon style={{fontSize:'5em'}} icon={faGraduationCap} /></i>
+                            <p >Malesuada</p>
                             <p>Lacus donec molestie sodales ut nunc felis malesuada quis semper fringilla&hellip;</p>
                         </div>
 

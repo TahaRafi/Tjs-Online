@@ -4,6 +4,11 @@ import  './Assets/styles/layout/layout.css';
 import  './Assets/styles/layout/about.css';
 import  './Assets/styles/layout/tutorials.css';
 import  './Assets/styles/layout/about.css';
+// import  './Assets/scripts/jquery.min.js';
+// import './Assets/scripts/jquery.backtotop.js';
+// import './Assets/scripts/jquery.mobilemenu.js';
+// import './Assets/scripts/jquery.flexslider-min.js';
+
 
 import {Route  } from "react-router-dom";
 

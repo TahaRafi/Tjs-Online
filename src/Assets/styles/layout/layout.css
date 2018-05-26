@@ -50,8 +50,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .services{}
 .services li:nth-child(-n+3){margin-bottom:30px;}/* Adds bottom margin to the first three elements only */
-.services article{position:relative; padding:20px 20px 50px; border-bottom:2px solid; text-align:center;}
-.services article .txtwrap{padding:20px; border:1px solid;}
+.services article{position:relative; border-bottom:2px solid; text-align:center;}
+.services article .txtwrap{ border:1px solid;}
 .services article .txtwrap *{margin:0;}
 .services article .txtwrap i{margin-bottom:50px;}
 .services article .txtwrap .heading{margin-bottom:20px; font-size:1.2rem;}
@@ -343,7 +343,7 @@ table a, #comments a{background-color:inherit;}
 @media screen and (max-width:750px){
 	.imgl, .imgr{display:inline-block; float:none; margin:0 0 10px 0;}
 	.fl_left, .fl_right{display:block; float:none;}
-	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto; margin:0 0 30px 0; padding:0;}
+	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto;height:auto; margin:0 0 30px 0; padding:0;}
 
 	#topbar, #header{text-align:center;}
 
@@ -371,22 +371,32 @@ table a, #comments a{background-color:inherit;}
 	#pageintro li .heading{font-size:1.6rem;}
 }
 
-.one_third {
-	width: 28%;
-}
+/*.one_third {*/
+	/*width: 28%;*/
+/*}*/
+
+/*.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter {*/
+	/*display: inline-block;*/
+	/*float: left;*/
+	/*margin: 1% 1% 1% 1%;*/
+	/*list-style: none;*/
+/*}*/
+
+/*.nospace {*/
+	/*margin: -1px;*/
+	/*padding: -1px;*/
+	/*list-style: none;*/
+/*}*/
+
+
 
 .one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter {
 	display: inline-block;
 	float: left;
-	margin: 1% 1% 1% 1%;
+	margin: 0 0 0 1.067485%;
 	list-style: none;
 }
 
-.nospace {
-	margin: -1px;
-	padding: -1px;
-	list-style: none;
+.fontAwsume{
+
 }
-
-
-
