@@ -16,21 +16,25 @@ class AboutUs extends Component {
         pageData.push(
             <div >
 
-                <section class="wrapper1">
+                <section class="wrapper1" style={{backgroundColor: "#f8f9fa"}}>
                     <div class="inner">
-                        <header class="align-center">
-                            <h1>{pageDatagetfromDb[0].heading}</h1>
-                            <p>{pageDatagetfromDb[0].minicontent}</p>
-                        </header>
-                        <div class="flex flex-2">
-                            <div class="col col2">
-                                <h3>{pageDatagetfromDb[0].subheading}</h3>
-                                <p>{pageDatagetfromDb[0].content}</p>
+
+                        <div>
+
+                            <img src={Image} alt=""/>
+                            <div style={{alignContent : "centre", margin: "-201px 303px 2em", color: "#343a40"}}>
+                                <p >Name</p>
+                                <p >Designation</p>
+                                <p >company</p>
                             </div>
-                            <div class="col col1 first">
-                                <div class="image round fit">
-                                    <a href="generic.html" class="link"><img src={Image} alt=""/></a>
-                                </div>
+
+
+                        </div>
+
+                        <div class="flex flex-2" style={{color: "#343a40"}}>
+                            <div class="col col2">
+                                <h7>{pageDatagetfromDb[0].subheading}</h7>
+                                <p>{pageDatagetfromDb[0].content}</p>
                             </div>
                         </div>
                     </div>

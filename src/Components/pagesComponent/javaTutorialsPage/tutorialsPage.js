@@ -29,7 +29,7 @@ class TutorialsPage extends Component {
             pageData.push( pageDatagetfromDb[i].name);
         }
         this.state = {
-            justClicked: null,
+            justClicked: pageDatagetfromDb[0].content,
             letters:   pageData
         };
     }
@@ -53,20 +53,44 @@ class TutorialsPage extends Component {
 
                 <Header/>
 
-                <div class="sidenav2">
-                    <ul>
-                        {this.state.letters.map((letter,index) =>
-                            <li key={letter} onClick={() => this.handleClick(index)}>
-                                <a>{letter}</a>
-                            </li>
-                        )}
 
-                    </ul>
-                </div>
+                <section style={{backgroundColor: "#f8f9fa"}} class="wrapper1">
+                    <div>
+                        <table class="table1">
+                            <div class="sidenav2" style={{backgroundColor: "#f8f9fa"}}>
+                                <tr>
+                                    <ul>
+                                        {this.state.letters.map((letter,index) =>
+                                            <li key={letter} onClick={() => this.handleClick(index)}>
+                                                <a><span class="txt">{letter}</span></a>
+                                            </li>
+                                        )}
 
-                <div class="main2">
-                    {this.state.justClicked}
-                </div>
+                                    </ul>
+                                </tr>
+                            </div>
+
+
+                        </table>
+
+                        <table class="table2">
+                            <tr>
+                                <div style={{backgroundColor: "#f8f9fa"}}>
+                                    {this.state.justClicked}
+                                </div>
+                            </tr>
+
+
+                        </table>
+
+                    </div>
+
+
+                </section>
+
+
+
+
 
                 <Footer/>
 

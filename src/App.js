@@ -19,13 +19,14 @@ import  Footer from './Components/footerComponent/footer';
 import Routing from './Components/routingComponent/routing';
 import JavaHome from "./Components/pagesComponent/javaTutorialsPage/Tutorials";
 import AboutUs from  "./Components/pagesComponent/aboutUs/aboutUs";
-import Contact  from "./Components/pagesComponent/contactUs/contact"
+import Contact  from "./Components/pagesComponent/contactUs/contact";
+import tutorialpage from "./Components/pagesComponent/javaTutorialsPage/tutorialsPage";
 
 class App extends Component {
     render() {
         return (
             <div>
-            <Route exact path="/" component={ Contact} />
+            <Route exact path="/" component={ tutorialpage } />
             </div>
         );
     }
