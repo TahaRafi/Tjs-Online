@@ -1,85 +1,61 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-
 import Header from "../../headerComponent/header";
 import  Footer from '../../footerComponent/footer';
 import Slider from '../../sliderComponent/slider';
- import TutorialsPage from "../javaTutorialsPage/tutorialsPage";
-import AboutUs from  "../../pagesComponent/aboutUs/aboutUs";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faGraduationCap from '@fortawesome/fontawesome-free-solid/faGraduationCap';
+import tutorialpage from "../javaTutorialsPage/tutorialsPage";
 
 class Tutorials extends Component {
-
 
     constructor(props) {
         super(props);
         this.state = {
-            redirectDesc: false,
             redirectTutorials:false
         };
     }
 
 
-
-    handleOnClick = (index) => {
+    handleOnClick = () => {
         console.log("hey");
-        if(index==1)
-        {
-            this.setState({redirectDesc: true});
-        }
-        else {
-            this.setState({redirectTutorials: true});
-        }
+        this.setState({redirectTutorials: true});
     }
+
 
     render() {
         var pageData = [];
         var pageDatagetfromDb = [
-            {"name": "JAVA 8", "desc": "This", "link": "#"},
-            {"name": "JAVA 1", "desc": "This is Java course", "link": "#"},
-            {"name": "JAVA 22", "desc": "This is Java course", "link": "#"}
+            {"name": "JAVA", "desc": "This is Java course", "link": "#","img" : "https://preview.ibb.co/cDM5L8/java.png"},
+            {"name": "JAVA", "desc": "This is Java course", "link": "#","img" : "https://preview.ibb.co/cDM5L8/java.png"},
+            {"name": "JAVA", "desc": "This is Java course", "link": "#","img" : "https://preview.ibb.co/cDM5L8/java.png"}
         ];
+
+
 
         for (var i = 0; i < pageDatagetfromDb.length; i++) {
             pageData.push(
-                <li class="one_third active">
-                    <article class="bgded overlay" >
-                        <div class="txtwrap"><i class="block fa fa-4x fa-apple"></i>
-                            <h6 class="heading">{pageDatagetfromDb[i].name}</h6>
-                            <p>{pageDatagetfromDb[i].desc}&hellip;</p>
-                        </div>
-                        <footer>
-                            <Router>
-                                <div>
-                                    <ul>
-                                        <li onClick={() => this.handleOnClick (1)}><Link to="/description">Description</Link></li>
-                                        <li onClick={() => this.handleOnClick (0)}><Link to="/tutorial">link</Link></li>
-                                    </ul>
+                <Router>
+                    <li class="one_third">
+                        <article class="bgded overlay" style={{backgroundImage: "url(" + pageDatagetfromDb[i].img + ")"}}>
+                            <div class="txtwrap" >
+                                <i><FontAwesomeIcon style={{fontSize:'5em'}} icon={faGraduationCap} /></i>
+                                <p >{pageDatagetfromDb[i].name}</p>
+                                <p>{pageDatagetfromDb[i].desc}&hellip;</p>
+                                <p ><li onClick={() => this.handleOnClick ()}><Link to="/tutorial"><u>Link</u></Link></li> </p>
+                            </div>
+                        </article>
+                    </li>
+                </Router>
 
-
-                                </div>
-                            </Router>
-                        </footer>
-                    </article>
-                </li>
             )
-        }
-
-
-
-        if (this.state.redirectDesc) {
-            return  <Router>
-                <div>
-                    <Route path="/description" component={AboutUs} />
-                </div>
-            </Router>
-
         }
 
         if (this.state.redirectTutorials) {
             return  <Router>
                 <div>
-                    <Route path="/tutorial" component={TutorialsPage} />
+                    <Route path="/tutorial" component={tutorialpage} />
                 </div>
             </Router>
 
@@ -89,7 +65,7 @@ class Tutorials extends Component {
             <tutorials>
 
                 <Header/>
-                <Slider/>
+
 
                 <div class="wrapper row3">
                     <main class="hoc container clear">

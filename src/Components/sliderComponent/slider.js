@@ -1,50 +1,66 @@
 import React, { Component } from 'react';
-import AboutScript from "../pagesComponent/aboutUs/aboutScript";
+import SlideOne from './SlideOne';
 
-class Slider extends Component {
+import SlideTwo from './SlideTwo';
+import RightArrow from './RightArrow';
+import LeftArrow from './LeftArrow';
+
+
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faArrowAltCircleLeft from '@fortawesome/fontawesome-free-solid/faArrowAltCircleLeft';
+import faArrowAltCircleRight from '@fortawesome/fontawesome-free-solid/faArrowAltCircleRight';
+
+
+export default class Slider extends Component {
+
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            slideCount: 1
+        }
+        this.nextSlide = this.nextSlide.bind(this);
+        this.previousSlide = this.previousSlide.bind(this);
+    }
+
     render() {
+
+
+
         return (
-            <slider>
-                <div id="pageintro" class="hoc clear">
-                    <div class="flexslider basicslider">
-                        <ul class="slides">
-                            <li>
-                                <article>
-                                    <p>Ullamcorper</p>
-                                    <h3 class="heading">Maecenas nulla tellus</h3>
-                                    <p>Vitae lobortis id ut mi in molestie in</p>
-                                    <footer><a class="btn" href="#">Venenatis curabitur</a></footer>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <p>Scelerisque</p>
-                                    <h3 class="heading">Dolor rhoncus nullam</h3>
-                                    <p>Augue non id quam sit amet urna lobortis</p>
-                                    <footer><a class="btn inverse" href="#">Interdum lectus</a></footer>
-                                </article>
-                            </li>
-                            <li>
-                                <article>
-                                    <p>Vestibulum</p>
-                                    <h3 class="heading">Justo erat venenatis</h3>
-                                    <p>Tempor sit amet ac nibh nullam mattis</p>
-                                    <footer><a class="btn" href="#">Bibendum magna</a></footer>
-                                </article>
-                            </li>
-                        </ul>
-                    </div>
+            <div className="slider">
+
+                {/* Slides go here */}
+                { this.state.slideCount === 1 ? <SlideOne /> : null }
+                { this.state.slideCount === 2 ? <SlideTwo /> : null }
+
+                {/* Arrow Functionality */}
+                <div class="div1">
+                    <i><FontAwesomeIcon  style={{fontSize:'2em' }} icon={faArrowAltCircleLeft}  onClick={this.previousSlide} /></i>
+                    <i><FontAwesomeIcon  style={{fontSize:'2em'}} icon={faArrowAltCircleRight} onClick={this.nextSlide}/></i>
                 </div>
 
-                <script src="layout/scripts/jquery.min.js"></script>
-                <script src="layout/scripts/jquery.backtotop.js"></script>
-                <script src="layout/scripts/jquery.mobilemenu.js"></script>
-                <script src="layout/scripts/jquery.flexslider-min.js"></script>
 
 
-            </slider>
+            </div>
         );
     }
-}
+     nextSlide() {
+        console.log("nextSlide");
+        if(this.state.slideCount<2)
+        {
+            this.setState({ slideCount: this.state.slideCount + 1 })
+        }
 
-export default Slider;
+    }
+
+    previousSlide() {
+        console.log("prevSlide");
+        if(this.state.slideCount >1)
+        {
+            this.setState({ slideCount: this.state.slideCount - 1 })
+        }
+    }
+}

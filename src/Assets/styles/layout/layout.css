@@ -401,3 +401,9 @@ table a, #comments a{background-color:inherit;}
 .container {
 	padding: 197px 0;
 }
+
+u {
+	color: #fff;
+	font-size: medium;
+	font-weight: bold;
+}

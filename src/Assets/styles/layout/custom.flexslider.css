@@ -63,3 +63,13 @@ File: Custom Flexslider CSS => For FlexSlider v2.6.1
 .flex-direction-nav a{color:rgba(255,255,255,1);}
 .flex-control-paging li a{background-color:rgba(255,255,255,1); border-color:rgba(255,255,255,0);}
 .flex-control-paging li a.flex-active{background-color:rgba(255,255,255,0); border-color:rgba(255,255,255,1);}
+
+.card-header-img {
+	padding: 30% 10% 10% 10%;
+	margin: 0px auto;
+}
+
+.div1{
+	padding: 0 0 0 613px;
+
+}

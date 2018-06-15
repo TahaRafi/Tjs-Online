@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, NavLink, HashRouter } from "react-router-dom";
 
-// import Pages  from '../../pagesComponent/homePage/pages';
-// import AboutUs from  "../../pagesComponent/aboutUs/aboutUs";
+
 
 import AboutUs from  "../../Components/pagesComponent/aboutUs/aboutUs";
 import Pages  from '../../Components/pagesComponent/homePage/pages';
@@ -40,32 +39,6 @@ class Header extends Component {
 
         var pageData = [];
 
-        // pageData.push(
-        //     <Router>
-        //         <div class="wrapper row1">
-        //             <header id="header" class="hoc clear">
-        //                 <div id="logo" class="fl_left">
-        //                     <h1><a><Link to="/home">TJS Online</Link></a></h1>
-        //                 </div>
-        //                 <nav id="mainav" class="fl_right">
-        //                     <div>
-        //                         <ul class="clear">
-        //                             <li class="active" onClick={() => this.handleOnClick (1)} ><a> <Link to="/home">Home</Link></a></li>
-        //                             <li onClick={() => this.handleOnClick (2)}><a> <Link to="/aboutus">About US</Link></a>
-        //                             </li>
-        //                             <li onClick={() => this.handleOnClick (3)}><a><Link to="/contact">Contact Us</Link></a></li>
-        //                         </ul>
-        //                     </div>
-        //
-        //                 </nav>
-        //             </header>
-        //             <Route path="/home" component={Pages} />
-        //         </div>
-        //     </Router>
-        //
-        // );
-
-
         pageData.push(
             <Router>
                 <div class="wrapper row1">
@@ -73,30 +46,56 @@ class Header extends Component {
                         <div id="logo" class="fl_left">
                             <h1><a><Link to="/home">TJS Online</Link></a></h1>
                         </div>
-                        <nav  class="fl_right">
+                        <nav id="mainav" class="fl_right">
                             <div>
-
-                                   <a> <Link to="/home">Home</Link></a>&nbsp;
-                                   <a> <Link to="/aboutus">About US</Link></a>&nbsp;
-                                   <a><Link to="/contact">Contact Us</Link></a>&nbsp;
-                                   <a> <Link to="/home">Articles</Link></a>&nbsp;
-                                   <a> <Link to="/aboutus">Subscirbe</Link></a>&nbsp;
+                                <ul class="clear">
+                                    <li class="active" onClick={() => this.handleOnClick ()} >Home</li>
+                                    <li onClick={() => this.handleOnClick ()}> <Link to="/aboutus">About US</Link></li>
+                                    <li onClick={() => this.handleOnClick ()}><Link to="/contact">Contact Us</Link></li>
+                                </ul>
                             </div>
 
                         </nav>
                     </header>
-                    <Route path="/home" component={Pages} />
                 </div>
             </Router>
 
         );
 
+
+        // pageData.push(
+        //     <Router>
+        //         <div class="wrapper row1">
+        //             <header id="header" class="hoc clear">
+        //                 <div id="logo" class="fl_left">
+        //                     <h1><a><Link to="/home">TJS Online</Link></a></h1>
+        //                 </div>
+        //                 <nav  class="fl_right">
+        //                     <div>
+        //
+        //                            <a href=""> Home</a>&nbsp;
+        //                            <a href=""> About US</a>&nbsp;
+        //                            <a href=""> Contact Us</a>&nbsp;
+        //                            <a href=""> Subscirbe</a>&nbsp;
+        //
+        //                         {/*<li><Link to="/home">Home</Link></li>*/}
+        //                         {/*<li><Link to="/aboutus">Stuff</Link></li>*/}
+        //                         {/*<li><Link to="/contact">Contact</Link></li>*/}
+        //                          {/*<div>*/}
+        //                              {/*<Route path="/home" component={Pages}/>*/}
+        //                              {/*<Route path="/aboutus" component={AboutUs}/>*/}
+        //                              {/*<Route path="/contact" component={Contact}/>*/}
+        //                          {/*</div>*/}
+        //                     </div>
+        //
+        //                 </nav>
+        //             </header>
+        //         </div>
+        //     </Router>
+        //
+        // );
+
         if (this.state.redirectHome) {
-            this.state = {
-                redirectHome: false,
-                redirectAboutUs:false,
-                redirectContactUs:false
-            };
             return  <Router>
                 <div>
                     <Route path="/home" component={Pages} />
@@ -106,11 +105,6 @@ class Header extends Component {
         }
 
         if (this.state.redirectAboutUs) {
-            this.state = {
-                redirectHome: false,
-                redirectAboutUs:false,
-                redirectContactUs:false
-            };
             return  <Router>
                 <div>
                     <Route path="/aboutus" component={AboutUs} />
@@ -121,11 +115,6 @@ class Header extends Component {
 
 
         if (this.state.redirectContactUs) {
-            this.state = {
-                redirectHome: false,
-                redirectAboutUs:false,
-                redirectContactUs:false
-            };
             return  <Router>
                 <div>
                     <Route path="/contact" component={Contact} />
