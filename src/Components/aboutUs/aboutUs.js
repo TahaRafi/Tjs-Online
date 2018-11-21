@@ -14,7 +14,7 @@ class AboutUs extends Component {
 
 
         pageData.push(
-            <div >
+            <div id="container">
 
                 <section class="wrapper1" style={{backgroundColor: "#f8f9fa"}}>
                     <div class="inner">
@@ -47,8 +47,12 @@ class AboutUs extends Component {
         return (
                <aboutus>
                    <Header/>
-                   {pageData}
-                   <Footer/>
+                   <div >
+
+                       {pageData}
+                       <Footer/>
+                   </div>
+
                </aboutus>
         );
     }

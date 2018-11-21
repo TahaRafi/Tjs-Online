@@ -13,11 +13,7 @@ class Contact extends Component {
         return (
 
             <contact>
-             <Header/>
-                {/*<head>*/}
-                    {/*<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>*/}
-                    {/*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>*/}
-                {/*</head>*/}
+                <Header/>
                 <section id="contact" class="content-section text-center" style={{backgroundColor: "#f8f9fa"}}>
                     <div class="contact-section">
                         <div class="container">
