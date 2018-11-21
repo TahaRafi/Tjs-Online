@@ -5,7 +5,7 @@ import Header from "../../headerComponent/header";
 import  Footer from '../../footerComponent/footer';
 import Slider from '../../sliderComponent/slider';
 import Tutorials from "../javaTutorialsPage/Tutorials";
-import AboutUs from  "../../pagesComponent/aboutUs/aboutUs";
+import AboutUs from "../../aboutUs/aboutUs";
 import  Image  from '../../images/focus.jpg';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faGraduationCap from '@fortawesome/fontawesome-free-solid/faGraduationCap';
@@ -15,57 +15,103 @@ class Pages extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            redirectTutorials:false
+            redirectTutorials:false,
+            error: null,
+            isLoaded: false,
+            data: null,
+            pageDatagetfromDb: [],
+            pageData: [],
+            genericId: null
         };
+        this.handleClick = this.handleClick.bind(this);
     }
 
 
-    handleOnClick = () => {
-        console.log("hey");
-        this.setState({redirectTutorials: true});
+    componentDidMount() {
+        fetch("http://localhost:80/getAllGenericCourses?mode=1")
+            .then(res => res.json())
+            .then(
+                (result) => {
+
+                    this.setState({
+                        isLoaded: true,
+                        data: result
+                    });
+                    console.log('data',this.state.data);
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
+
+
+    handleClick = ({currentTarget}) => {
+       console.log("id",currentTarget.value);
+        this.setState({redirectTutorials: true, genericId : currentTarget.value });
         }
 
 
     render() {
-        var pageData = [];
-        var pageDatagetfromDb = [
-            {"name": "JAVA", "desc": "This is Java course", "link": "#","img" : "https://image.ibb.co/hYwvk8/images.jpg"},
-            {"name": "JAVA", "desc": "This is Java course", "link": "#","img" : "https://image.ibb.co/hYwvk8/images.jpg"},
-            {"name": "JAVA", "desc": "This is Java course", "link": "#","img" : "https://image.ibb.co/hYwvk8/images.jpg"}
-        ];
 
 
 
-        for (var i = 0; i < pageDatagetfromDb.length; i++) {
-            pageData.push(
-                <Router>
-                <li class="one_third">
-                    <article class="bgded overlay" style={{backgroundImage: "url(" + pageDatagetfromDb[i].img + ")"}}>
-                        <div class="txtwrap" >
-                            <i><FontAwesomeIcon style={{fontSize:'5em'}} icon={faGraduationCap} /></i>
-                            <p >{pageDatagetfromDb[i].name}</p>
-                            <p>{pageDatagetfromDb[i].desc}&hellip;</p>
-                            <p ><li onClick={() => this.handleOnClick ()}><Link to="/tutorial"><u>Link</u></Link></li> </p>
-                        </div>
-                    </article>
-                </li>
-                </Router>
+        if ( this.state.data != undefined ) {
+            this.state.pageDatagetfromDb = this.state.data.responseObject ;
 
-            )
+
+            for (var i = 0; i < this.state.pageDatagetfromDb.length; i++) {
+                this.state.pageData.push(
+                    <Router>
+
+                        <li class="one_third">
+                            <article class="bgded overlay"
+                                     style={{backgroundImage: "url(" + "https://image.ibb.co/hYwvk8/images.jpg" + ")"}}>
+                                <div class="txtwrap">
+                                    <i><FontAwesomeIcon style={{fontSize: '5em'}} icon={faGraduationCap}/></i>
+                                    <p>{this.state.pageDatagetfromDb[i].courseName}</p>
+                                    <p>{this.state.pageDatagetfromDb[i].courseDesc}&hellip;</p>
+                                    <p>
+                                        <li value={this.state.pageDatagetfromDb[i].id} onClick={this.handleClick}><Link to="/tutorial"><u>Link</u></Link>
+                                        </li>
+                                    </p>
+                                </div>
+                            </article>
+                        </li>
+                    </Router>
+                )
+            }
         }
 
+
+
         if (this.state.redirectTutorials) {
-            return  <Router>
+            return <Router>
                 <div>
-                    <Route path="/tutorial" component={Tutorials} />
+                    {/*<Route path="/tutorial"  component={Tutorials} genericId={this.state.genericId} />*/}
+                    <Route path="/tutorial"  render={(routeProps) => (<Tutorials genericId={this.state.genericId} />)} />
+
                 </div>
             </Router>
 
         }
 
+
+        const {error, isLoaded} = this.state;
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded ) {
+            return <div>Loading...</div>;
+        }else {
+
         return (
             <pages>
-
                 <Header/>
                 <Slider/>
 
@@ -76,7 +122,7 @@ class Pages extends Component {
                             <p class="nospace">Erat in diam eu placerat purus est ac nisi integer sed rutrum dictum.</p>
                         </div>
                         <ul class="nospace group services">
-                            {pageData}
+                            {this.state.pageData}
                         </ul>
                         <div class="clear"></div>
                     </main>
@@ -89,6 +135,15 @@ class Pages extends Component {
             </pages>
         );
     }
+
+    }
+    //
+    // componentDidMount() {
+    //     fetch('http://localhost:8080/getAllGenericCourses?mode=1')
+    //         .then(response => response.json())
+    //         .then(data => this.setState({ data }));
+    //     console.log("data",data);
+    // }
 }
 
 export default Pages;
